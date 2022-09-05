@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/tailwindcss.css" />
+
+    <!--  -->
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="#trigger">
+      <!-- header -->
+      <header class="relative flex flex-col items-center justify-center h-screen overflow-hidden" id="slide-2">
+        <div class="relative z-30 p-5 text-6xl font-medium uppercase text-slate-100">Welcome to bangli Skatepark</div>
+        <div class="relative z-30 p-5 text-6xl font-medium uppercase text-slate-100 hover:mt-10 hover:bg-black max-w-fit">scroll down</div>
+        <video autoplay loop muted class="absolute -z-10 max-w-full w-auto min-w-full max-w-none grayscale">
+          <source src="assets/video/Bangli Skatepark (@bangliskatepark) • Instagram photos and videos.mp4" type="video/mp4" />
+        </video>
+      </header>
+      <!-- end header -->
+      <!-- main content -->
+      <div class="min-h-full max-w-full z-10 translate-x-full" id="slide-2">
+        <div class="flex flex-col">
+          <h1 class="text-7xl mb-5 text-center text-white capitalize hover:bg-white max-w-fit hover:text-black" id="slide-3">our journey</h1>
+          <div>
+            <img src="assets/img/1.jpg" class="min-w-full" />
+            <p class="m-4 text-white" id="slide-4">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt velit doloribus quo eos sed vero voluptatem ipsam ratione quia inventore praesentium voluptas quod, laudantium enim delectus qui numquam adipisci, nisi
+              repellat soluta? Debitis vitae aliquam, assumenda, totam ipsum sequi deleniti hic quis eius voluptates fuga cupiditate delectus perferendis saepe iste consequuntur recusandae nisi magni impedit beatae reiciendis, rem ad
+              temporibus. Esse deleniti eum officia perferendis, impedit aperiam porro numquam repellendus autem consectetur quas deserunt, inventore voluptatum libero corrupti commodi. Nostrum quae labore sunt reiciendis voluptates!
+              Voluptatibus optio odio deleniti nesciunt dolorum repellendus officiis, maxime unde nostrum ipsam neque odit in.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end main content -->
+    </div>
+    <!-- end content 1 -->
+
+    <!-- slide show -->
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#trigger",
+        start: "center bottom",
+        end: "center top",
+        scrub: true,
+        pinnedContaine: "endTrigger",
+        pinReparent: true,
+        // markers: true,
+      },
+    });
+    const tlT = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#trigger2",
+        start: "50% center",
+        end: "bottom center",
+        // markers: true,
+        scrub: true,
+      },
+    });
+
+    tl.to("#slide-1", { xPercent: 100, duration: 10 });
+    tl.to("#slide-2", { xPercent: -100, duration: 10 });
+    tl.to("#slide-3", { yPercent: -100, xPercent: 100, duration: 40, delay: 20, ease: "steps(12)" });
+    tlT.to("#slide-4", { yPercent: -200, duration: 10, delay: 0.5, color: "white" });
+  </script>
+</html>
